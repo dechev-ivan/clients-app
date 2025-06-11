@@ -1,0 +1,24 @@
+{
+  "name": "clients-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "bunx nuxi build",
+    "dev": "bunx nuxi dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "0.11.1",
+    "normalize.css": "^8.0.1",
+    "nuxt": "^3.17.5",
+    "pinia": "^3.0.3",
+    "vue": "^3.5.16",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "sass": "^1.89.1",
+    "typescript": "^5.8.3"
+  }
+}

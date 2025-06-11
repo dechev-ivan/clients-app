@@ -1,8 +1,10 @@
 <script lang="ts" setup>
 import {useClientsStore} from '~/stores/clients';
+import { useMediaQuery } from '~/composables/useMediaQuery'
 import {DEVICE_OPTIONS} from "~/assets/constants/device";
 
 const clientsStore = useClientsStore();
+const isMobile = useMediaQuery(`(max-width: ${DEVICE_OPTIONS.TABLET}px)`);
 const {selectedClient} = storeToRefs(clientsStore);
 
 const isSidebarOpen = ref(true);
@@ -21,23 +23,6 @@ watch(selectedClient, (value, oldValue) => {
         isSidebarOpen.value = false;
     }
 });
-
-const isMobile = ref(false);
-
-onMounted(() => {
-    const mediaQuery = window?.matchMedia(`(max-width: ${DEVICE_OPTIONS.TABLET}px)`)
-    isMobile.value = mediaQuery.matches;
-
-    const handler = (e: MediaQueryListEvent) => {
-        isMobile.value = e.matches;
-    }
-
-    mediaQuery.addEventListener('change', handler)
-
-    onBeforeUnmount(() => {
-        mediaQuery.removeEventListener('change', handler)
-    })
-})
 </script>
 
 <template>

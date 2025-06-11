@@ -1,18 +1,19 @@
 import {defineStore} from 'pinia'
 import {useClientLocalData} from '~/composables/useClientLocalData';
 import type {Client, ClientLocalData, ClientWithLocalData} from '~/types/client';
+import { DEFAULT_CLIENT_LOCAL_DATA } from "assets/constants/client";
 
 const {getAllClientData, updateClientData} = useClientLocalData();
 
 export const useClientsStore = defineStore('clients', () => {
     const isLoaded = ref(false)
     const apiClients = ref<Client[]>([])
-    const localData = ref<Record<string, ClientLocalData>>(getAllClientData())
+    const localData = ref<Record<string, ClientLocalData>>(getAllClientData());
 
     const clients = computed<ClientWithLocalData[]>(() =>
         apiClients.value.map(c => ({
             ...c,
-            ...(localData.value[c.id.toString()] ?? {rating: 0, comment: ''})
+            ...(localData.value[c.id.toString()] ?? DEFAULT_CLIENT_LOCAL_DATA)
         }))
     )
 

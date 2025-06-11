@@ -1,8 +1,13 @@
 <script lang="ts" setup>
-const tabs = [
-    {path: '/clients', name: 'Clients'},
-    {path: '/rating', name: 'Rating'}
-]
+interface SidebarTab {
+    path: string;
+    name: string;
+}
+
+const tabs: SidebarTab[] = [
+    { path: '/clients', name: 'Clients' },
+    { path: '/rating', name: 'Rating' },
+];
 </script>
 
 <template>

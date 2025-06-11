@@ -17,7 +17,7 @@ const handleClickContent = () => {
 }
 
 watch(selectedClient, (value, oldValue) => {
-    if (isSidebarOpen.value && isMobile.value && oldValue !== value) {
+    if (isSidebarOpen.value && isMobile.value && oldValue?.id !== value?.id) {
         isSidebarOpen.value = false;
     }
 });

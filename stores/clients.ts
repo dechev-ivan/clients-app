@@ -36,10 +36,6 @@ export const useClientsStore = defineStore('clients', () => {
         selectedClientId.value = id
     }
 
-    function clearSelectedClient() {
-        selectedClientId.value = null
-    }
-
     async function fetchClients(force = false): Promise<Client[]> {
         if (isLoaded.value && !force) {
             return apiClients.value;
@@ -66,7 +62,7 @@ export const useClientsStore = defineStore('clients', () => {
         await fetchClients(true);
 
         if (selectedClientId.value && (!apiClients.value?.length || !apiClients.value.some(c => c.id === selectedClientId.value))) {
-            clearSelectedClient();
+            selectClient(null);
         }
     };
 
@@ -97,7 +93,6 @@ export const useClientsStore = defineStore('clients', () => {
         updateClients,
         saveClientData,
         selectClient,
-        clearSelectedClient,
     }
 })
 

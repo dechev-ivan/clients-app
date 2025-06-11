@@ -9,7 +9,6 @@ const {
     fetchClients,
     updateClients,
     selectClient,
-    clearSelectedClient,
 } = clientsStore;
 
 const {
@@ -44,7 +43,7 @@ const clients = computed(() => {
 
 watch(clients, () => {
     if (selectedClientId.value && (!clients.value?.length || !clients.value.some(c => c.id === selectedClientId.value))) {
-        clearSelectedClient();
+        selectClient(null);
     }
 });
 

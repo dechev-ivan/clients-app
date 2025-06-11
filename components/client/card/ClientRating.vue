@@ -53,6 +53,10 @@ const updateRating = (increment: boolean): void => {
 .text {
     font-size: 24px;
     font-weight: 500;
+
+    @include respond-to(tablet) {
+        font-size: 16px;
+    }
 }
 
 .btn {

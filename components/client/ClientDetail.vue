@@ -44,10 +44,12 @@ withDefaults(defineProps<{
     justify-content: center;
     width: 100%;
     background-color: var(--base-100);
+}
 
-    .card {
-        &:global(.fade-fast-enter-from),
-        &:global(.fade-fast-leave-active) {
+.card {
+    &:global(.fade-fast-enter-from),
+    &:global(.fade-fast-leave-active) {
+        @include respond-to(mobile) {
             opacity: 1;
         }
     }

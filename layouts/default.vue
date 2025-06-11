@@ -10,6 +10,12 @@ const toggleSidebar = () => {
     isSidebarOpen.value = !isSidebarOpen.value;
 }
 
+const handleClickContent = () => {
+    if (isSidebarOpen.value && isMobile.value) {
+        isSidebarOpen.value = false;
+    }
+}
+
 watch(selectedClient, (value, oldValue) => {
     if (isSidebarOpen.value && isMobile.value && oldValue !== value) {
         isSidebarOpen.value = false;
@@ -45,7 +51,10 @@ onMounted(() => {
             </template>
         </TheSidebar>
 
-        <main :class="[$style.content, {[$style._offset]: !isSidebarOpen}]">
+        <main
+            :class="[$style.content, {[$style._offset]: !isSidebarOpen}]"
+            @click="handleClickContent"
+        >
             <ClientDetail :client="selectedClient"/>
         </main>
     </div>

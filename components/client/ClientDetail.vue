@@ -15,6 +15,7 @@ withDefaults(defineProps<{
                 <ClientCard
                     v-if="client"
                     :key="`client_${client.id}`"
+                    :class="$style.card"
                     :client
                 />
 
@@ -43,6 +44,13 @@ withDefaults(defineProps<{
     justify-content: center;
     width: 100%;
     background-color: var(--base-100);
+
+    .card {
+        &:global(.fade-fast-enter-from),
+        &:global(.fade-fast-leave-active) {
+            opacity: 1;
+        }
+    }
 }
 
 .emptyText {

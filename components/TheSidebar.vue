@@ -39,9 +39,19 @@ defineEmits(['toggle'])
     transition: transform 0.3s ease;
     box-shadow: 0 0 6px rgb(174 174 174);
     flex-direction: column;
+    overscroll-behavior: contain;
+
+    @include respond-to(mobile) {
+        width: var(--sidebar-width-mobile);
+        max-width: calc(100vw - 24px);
+    }
 
     &._closed {
         transform: translateX(calc(-1 * var(--sidebar-width)));
+
+        @include respond-to(mobile) {
+            transform: translateX(calc(-1 * var(--sidebar-width-mobile)));
+        }
 
         .arrow {
             transform: rotateZ(180deg);
@@ -87,6 +97,11 @@ defineEmits(['toggle'])
     transition: all 0.2s ease;
     cursor: pointer;
     box-shadow: 0 0 6px rgb(174 174 174);
+
+    @include respond-to(mobile) {
+        width: 24px;
+        height: 48px;
+    }
 }
 
 .content {

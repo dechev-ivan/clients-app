@@ -58,11 +58,25 @@ const isSaveDisabled = computed(() => Boolean(props.client.rating === rating.val
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%);
     border-radius: 16px;
     background-color: var(--base-white);
+
+    @include respond-to(tablet) {
+        width: 480px;
+    }
+
+    @include respond-to(mobile) {
+        gap: 14px;
+        width: calc(100% - 32px);
+        padding: 24px;
+    }
 }
 
 .main {
     display: flex;
     gap: 24px;
+
+    @include respond-to(tablet) {
+        flex-direction: column;
+    }
 }
 
 .photo {
@@ -71,10 +85,15 @@ const isSaveDisabled = computed(() => Boolean(props.client.rating === rating.val
 }
 
 .info {
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     gap: 24px;
+
+    @include respond-to(tablet) {
+        gap: 16px;
+    }
 }
 
 .footer {
@@ -84,5 +103,9 @@ const isSaveDisabled = computed(() => Boolean(props.client.rating === rating.val
 
 .saveBtn {
     width: 50%;
+
+    @include respond-to(tablet) {
+        width: 100%;
+    }
 }
 </style>

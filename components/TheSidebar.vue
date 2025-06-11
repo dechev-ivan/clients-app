@@ -41,6 +41,12 @@ defineEmits(['toggle'])
     flex-direction: column;
     overscroll-behavior: contain;
 
+  @include respond-to(tablet) {
+      @supports (height: 100dvh) {
+          height: 100dvh;
+      }
+  }
+
     @include respond-to(mobile) {
         width: var(--sidebar-width-mobile);
         max-width: calc(100vw - 24px);

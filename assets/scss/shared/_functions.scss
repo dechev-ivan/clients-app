@@ -1,0 +1,5 @@
+@function get-breakpoint($name, $bp: $breakpoints) {
+	$max: map-get($bp, $name);
+
+	@return if($max != null, $max, null);
+}

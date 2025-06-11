@@ -1,0 +1,55 @@
+@mixin respond-to($name, $bp: $breakpoints) {
+	$max: get-breakpoint($name, $bp);
+
+	@if $max {
+		@media (max-width: $max) {
+			@content;
+		}
+	}
+}
+
+@mixin respond-to-min($name, $bp: $breakpoints) {
+	$min: get-breakpoint($name, $bp);
+
+	@if $min {
+		@media (min-width: $min) {
+			@content;
+		}
+	}
+}
+
+@mixin font($alias, $name, $weight) {
+	@font-face {
+		font-family: $alias;
+		src: url("/fonts/" + $name + ".woff2") format("woff2");
+		font-weight: $weight;
+		font-style: normal;
+		font-display: swap;
+	}
+}
+
+@mixin hover {
+	@media (hover), (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		&:hover {
+			@content;
+		}
+	}
+}
+
+@mixin text-ellipsis($line-clamp, $strict: true) {
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	@if $line-clamp == 1 and $strict == true {
+		display: block;
+		white-space: nowrap;
+	} @else {
+		/*stylelint-disable*/
+		display: -webkit-box;
+		/*stylelint-enable*/
+
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: $line-clamp;
+		line-clamp: $line-clamp;
+	}
+}

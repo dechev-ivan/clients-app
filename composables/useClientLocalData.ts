@@ -1,4 +1,5 @@
 import type {Client, ClientLocalData} from "~/types/client";
+import { DEFAULT_CLIENT_LOCAL_DATA } from "assets/constants/client";
 
 const STORAGE_KEY = 'clients_local_data';
 
@@ -20,7 +21,7 @@ export function useClientLocalData() {
         if (!import.meta.client) return;
         try {
             const allData = getAllClientData();
-            const existing = allData[id] || {rating: 0, comment: ''};
+            const existing = allData[id] || DEFAULT_CLIENT_LOCAL_DATA;
             allData[id] = {...existing, ...newData};
             localStorage.setItem(STORAGE_KEY, JSON.stringify(allData));
         } catch (err) {

@@ -100,7 +100,7 @@ const onClick = (event: MouseEvent): void => {
         background-color: var(--primary-300);
         color: var(--base-white);
 
-        &:hover {
+        @include hover {
             background-color: var(--primary-400);
         }
 
@@ -136,7 +136,7 @@ const onClick = (event: MouseEvent): void => {
 
         &.--is-disabled {
             background-color: var(--base-300);
-            color: var(--base-500);
+            color: var(--base-400);
         }
     }
 
@@ -144,12 +144,12 @@ const onClick = (event: MouseEvent): void => {
         background-color: var(--base-white);
         color: var(--base-black);
 
-        &:hover {
+        @include hover {
             background-color: var(--base-100);
         }
 
         &:active {
-            color: var(--primary-100);
+            background-color: var(--base-200);
         }
 
         &.--is-loading {

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import {useClientsStore} from '~/stores/clients'
+import type { NuxtError } from "#app";
 
 import ClientsList from "~/components/client/list/ClientsList.vue";
 
@@ -7,14 +8,19 @@ const clientsStore = useClientsStore()
 const {fetchClients, selectClient} = clientsStore;
 const {sortedByRating: clients, selectedClientId} = storeToRefs(clientsStore)
 
-await useAsyncData('rating', async () => {
+const { error } = await useAsyncData('rating', async () => {
     try {
         await fetchClients();
         return {};
-    } catch (error) {
+    } catch (error: unknown) {
         console.error(error);
+        throw createError(error as NuxtError);
     }
 });
+
+if (error.value) {
+    showError(error.value);
+}
 
 definePageMeta({
     layout: false,

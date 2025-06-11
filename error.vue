@@ -3,13 +3,16 @@ import type {NuxtError} from '#app'
 import {UiTags} from "#layers/ui-kit/types/enum";
 
 defineProps({
-    error: Object as () => NuxtError
+    error: Object as () => NuxtError,
 })
 </script>
 
 <template>
     <div :class="$style.ErrorPage">
-        <h1 :class="$style.title">{{ error?.statusCode }}</h1>
+        <h1 v-if="error?.statusCode" :class="$style.title">{{ error.statusCode }}</h1>
+
+        <h2 v-if="error?.statusMessage" :class="$style.text">{{ error.statusMessage }}</h2>
+
         <UiButton
             :tag="UiTags.RLink"
             to="/"
@@ -30,7 +33,12 @@ defineProps({
 }
 
 .title {
-    margin-bottom: 40px;
+    margin-bottom: 24px;
     font-size: 48px;
+}
+
+.text {
+    margin-bottom: 40px;
+    font-size: 32px;
 }
 </style>

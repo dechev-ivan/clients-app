@@ -1,18 +1,19 @@
 import {defineStore} from 'pinia'
 import {useClientLocalData} from '~/composables/useClientLocalData';
 import type {Client, ClientLocalData, ClientWithLocalData} from '~/types/client';
+import { DEFAULT_CLIENT_LOCAL_DATA } from "assets/constants/client";
 
 const {getAllClientData, updateClientData} = useClientLocalData();
 
 export const useClientsStore = defineStore('clients', () => {
     const isLoaded = ref(false)
     const apiClients = ref<Client[]>([])
-    const localData = ref<Record<string, ClientLocalData>>(getAllClientData())
+    const localData = ref<Record<string, ClientLocalData>>(getAllClientData());
 
     const clients = computed<ClientWithLocalData[]>(() =>
         apiClients.value.map(c => ({
             ...c,
-            ...(localData.value[c.id.toString()] ?? {rating: 0, comment: ''})
+            ...(localData.value[c.id.toString()] ?? DEFAULT_CLIENT_LOCAL_DATA)
         }))
     )
 
@@ -33,10 +34,6 @@ export const useClientsStore = defineStore('clients', () => {
 
     function selectClient(id: ClientWithLocalData['id'] | null) {
         selectedClientId.value = id
-    }
-
-    function clearSelectedClient() {
-        selectedClientId.value = null
     }
 
     async function fetchClients(force = false): Promise<Client[]> {
@@ -65,7 +62,7 @@ export const useClientsStore = defineStore('clients', () => {
         await fetchClients(true);
 
         if (selectedClientId.value && (!apiClients.value?.length || !apiClients.value.some(c => c.id === selectedClientId.value))) {
-            clearSelectedClient();
+            selectClient(null);
         }
     };
 
@@ -96,7 +93,6 @@ export const useClientsStore = defineStore('clients', () => {
         updateClients,
         saveClientData,
         selectClient,
-        clearSelectedClient,
     }
 })
 

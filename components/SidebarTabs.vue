@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 const tabs = [
     {path: '/clients', name: 'Clients'},
     {path: '/rating', name: 'Rating'}
@@ -14,8 +14,8 @@ const tabs = [
                 :class="$style.tab"
             >
                 <router-link
-                    :to="tab.path"
                     :class="$style.link"
+                    :to="tab.path"
                 >
                     {{ tab.name }}
                 </router-link>

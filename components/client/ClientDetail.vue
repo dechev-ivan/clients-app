@@ -11,7 +11,7 @@ withDefaults(defineProps<{
 <template>
     <div :class="$style.ClientDetail">
         <div :class="$style.wrapper">
-            <transition name="fade-fast" mode="out-in">
+            <transition mode="out-in" name="fade-fast">
                 <ClientCard
                     v-if="client"
                     :key="`client_${client.id}`"

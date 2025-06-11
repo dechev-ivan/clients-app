@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import {useClientsStore} from '~/stores/clients'
 
 import ClientsList from "~/components/client/list/ClientsList.vue";
@@ -73,17 +73,17 @@ definePageMeta({
                 <div :class="$style.listWrap">
                     <ClientsList
                         v-if="clients?.length"
+                        :class="$style.list"
                         :clients="clients"
                         :selected-client-id
-                        :class="$style.list"
                         @select="selectClient"
                     />
                 </div>
 
                 <div :class="$style.sidebarFooter">
                     <UiButton
-                        :loading
                         :class="$style.updateBtn"
+                        :loading
                         @click="handleUpdate"
                     >
                         Update

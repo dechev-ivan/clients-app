@@ -23,8 +23,8 @@ const loaderSize = computed(() => sizeMap[props.size]);
 
 <template>
     <span
-        class="UiPreloader"
         :class="classList"
+        class="UiPreloader"
     >
         <span class="UiPreloader__loader"/>
     </span>

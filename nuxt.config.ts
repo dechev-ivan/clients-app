@@ -17,11 +17,10 @@ export default defineNuxtConfig({
                 scss: {
                     silenceDeprecations: ['legacy-js-api'],
 
-                    additionalData:
-                        `
-                @import "./assets/scss/shared/_variables.scss";
-                @import "./assets/scss/shared/_mixins.scss";
-              `,
+                    additionalData: `
+                        @use "./assets/scss/shared/_variables.scss" as *;
+                        @use "./assets/scss/shared/_mixins.scss" as *;
+                    `,
                 },
             },
         },

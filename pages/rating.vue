@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import {useClientsStore} from '~/stores/clients'
 
 import ClientsList from "~/components/client/list/ClientsList.vue";
@@ -28,10 +28,10 @@ definePageMeta({
                 <client-only>
                     <ClientsList
                         v-if="clients?.length"
+                        :class="$style.list"
                         :clients="clients"
                         :selected-client-id
                         show-rating
-                        :class="$style.list"
                         @select="selectClient"
                     />
                 </client-only>

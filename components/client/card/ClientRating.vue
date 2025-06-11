@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import {UiColor, UiSize} from "#layers/ui-kit/types/enum";
 
 const rating = defineModel();
@@ -19,9 +19,9 @@ const updateRating = (increment: boolean): void => {
 <template>
     <div :class="$style.ClientRating">
         <UiButton
-            :size="UiSize.S"
-            :color="UiColor.BaseWhite"
             :class="$style.btn"
+            :color="UiColor.BaseWhite"
+            :size="UiSize.S"
             @click="updateRating(false)"
         >
             -
@@ -30,9 +30,9 @@ const updateRating = (increment: boolean): void => {
         <span :class="$style.text">{{ rating }} points</span>
 
         <UiButton
-            :size="UiSize.S"
-            :color="UiColor.BaseWhite"
             :class="$style.btn"
+            :color="UiColor.BaseWhite"
+            :size="UiSize.S"
             @click="updateRating(true)"
         >
             +

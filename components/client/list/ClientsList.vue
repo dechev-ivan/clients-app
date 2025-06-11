@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import type {ClientWithLocalData} from "~/types/client";
 
 import ClientListItem from "~/components/client/list/ClientListItem.vue";
@@ -28,8 +28,8 @@ defineEmits<{
                 >
                     <ClientListItem
                         :client
-                        :show-rating
                         :is-selected="selectedClientId === client.id"
+                        :show-rating
                         @click="$emit('select', client.id === selectedClientId ? null : client.id)"
                     />
                 </li>

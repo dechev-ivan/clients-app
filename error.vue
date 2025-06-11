@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import type {NuxtError} from '#app'
 import {UiTags} from "#layers/ui-kit/types/enum";
 
@@ -19,7 +19,7 @@ defineProps({
     </div>
 </template>
 
-<style module lang="scss">
+<style lang="scss" module>
 .ErrorPage {
     display: flex;
     align-items: center;

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import {UiColor, UiSize, UiTags} from '../types/enum';
 
 const props = withDefaults(defineProps<{
@@ -50,10 +50,10 @@ const onClick = (event: MouseEvent): void => {
 <template>
     <component
         :is="componentTag"
-        v-bind="$attrs"
+        :class="classList"
         :disabled="disabled"
         class="UiButton"
-        :class="classList"
+        v-bind="$attrs"
         @click="onClick"
     >
         <slot/>

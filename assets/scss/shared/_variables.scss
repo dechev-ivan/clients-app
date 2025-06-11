@@ -1,28 +1,28 @@
 :root {
-	--sidebar-width: 320px;
+    --sidebar-width: 320px;
 
-	// fonts
-	--base-font: "CoFoSans", helvetica, sans-serif;
-	--base-font-size: 16px;
+    // fonts
+    --base-font: "CoFoSans", helvetica, sans-serif;
+    --base-font-size: 16px;
 
-	// colors
-	--base-white: #fff;
-	--base-100: #e1e1e1;
-	--base-200: #ededed;
-	--base-300: #ddd;
-	--base-400: #8f8e92;
-	--base-black: #000;
-	--primary-50: #f8fafc;
-	--primary-100: #e4f2fd;
-	--primary-200: #d3e1ea;
-	--primary-300: #007aff;
-	--primary-400: #005ecd;
-	--primary-500: #00429a;
+    // colors
+    --base-white: #fff;
+    --base-100: #e1e1e1;
+    --base-200: #ededed;
+    --base-300: #ddd;
+    --base-400: #8f8e92;
+    --base-black: #000;
+    --primary-50: #f8fafc;
+    --primary-100: #e4f2fd;
+    --primary-200: #d3e1ea;
+    --primary-300: #007aff;
+    --primary-400: #005ecd;
+    --primary-500: #00429a;
 }
 
 /* Breakpoints */
 $breakpoints: (
-		mobile: 720px,
-		tablet: 1023px,
-		laptop: 1359px,
+    mobile: 720px,
+    tablet: 1023px,
+    laptop: 1359px,
 );

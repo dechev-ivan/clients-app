@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import type {ClientWithLocalData} from "~/types/client";
 import {UiSize} from "#layers/ui-kit/types/enum";
 
@@ -27,9 +27,9 @@ const fullName = computed(() => `${props.client.first_name} ${props.client.last_
 
         <ClientPhoto
             v-else
+            :class="$style.photo"
             :size="UiSize.S"
             :src="client.avatar"
-            :class="$style.photo"
         />
 
         <span :class="$style.name">{{ fullName }}</span>

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 defineProps<{
     modelValue: number | string | null;
 }>();
@@ -11,10 +11,10 @@ defineEmits(['update:modelValue'])
         <span class="UiSearchInput__icon">🔍︎</span>
 
         <input
-            type="text"
             :value="modelValue"
-            placeholder="Enter username to search"
             class="UiSearchInput__input"
+            placeholder="Enter username to search"
+            type="text"
             @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
         />
     </div>

@@ -1,9 +1,8 @@
 import {defineStore} from 'pinia'
 import {useClientLocalData} from '~/composables/useClientLocalData';
+import type {Client, ClientLocalData, ClientWithLocalData} from '~/types/client';
 
 const {getAllClientData, updateClientData} = useClientLocalData();
-
-import type {Client, ClientLocalData, ClientWithLocalData} from '~/types/client';
 
 export const useClientsStore = defineStore('clients', () => {
     const isLoaded = ref(false)

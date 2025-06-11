@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import type {ClientWithLocalData} from "~/types/client";
 import {UiSize} from "#layers/ui-kit/types/enum";
 
@@ -21,9 +21,9 @@ const classList = computed(() => ({
 <template>
     <div :class="[$style.ClientPhoto, classList]">
         <img
-            :src="src"
             :alt="alt"
             :class="$style.image"
+            :src="src"
         />
     </div>
 </template>

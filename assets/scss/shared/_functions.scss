@@ -1,5 +1,8 @@
-@function get-breakpoint($name, $bp: $breakpoints) {
-	$max: map-get($bp, $name);
+@use "sass:map";
+@use "./variables" as *;
 
-	@return if($max != null, $max, null);
+@function get-breakpoint($name, $bp: $breakpoints) {
+    $max: map.get($bp, $name);
+
+    @return if($max != null, $max, null);
 }

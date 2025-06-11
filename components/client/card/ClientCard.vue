@@ -13,6 +13,8 @@ const rating = ref(props.client.rating);
 const comment = ref(props.client.comment);
 
 const fullName = computed(() => `${props.client.first_name} ${props.client.last_name}`);
+
+// TODO: сюда бы добавить проверку длины коммента и возможность ограничить рейтинг сверху / снизу
 const isSaveDisabled = computed(() => Boolean(props.client.rating === rating.value && props.client.comment === comment.value));
 </script>
 

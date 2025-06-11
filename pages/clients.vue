@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import {useClientsStore} from '~/stores/clients'
-
+import type { NuxtError } from "#app";
 import ClientsList from "~/components/client/list/ClientsList.vue";
 
 const clientsStore = useClientsStore()
@@ -17,14 +17,19 @@ const {
     selectedClientId,
 } = storeToRefs(clientsStore)
 
-await useAsyncData('clients', async () => {
+const { error } = await useAsyncData('clients', async () => {
     try {
         await fetchClients();
         return {};
-    } catch (error) {
+    } catch (error: unknown) {
         console.error(error);
+        throw createError(error as NuxtError);
     }
 });
+
+if (error.value) {
+    showError(error.value);
+}
 
 const searchQuery = ref('');
 

@@ -31,13 +31,14 @@ watch(selectedClient, (value, oldValue) => {
             :is-open="isSidebarOpen"
             @toggle="toggleSidebar"
         >
-            <template v-if="$slots.sidebar">
-                <slot name="sidebar"/>
-            </template>
+            <slot v-if="$slots.sidebar" name="sidebar"/>
         </TheSidebar>
 
         <main
-            :class="[$style.content, {[$style._offset]: !isSidebarOpen}]"
+            :class="[
+                $style.content,
+                { [$style._offset]: !isSidebarOpen }
+            ]"
             @click="handleClickContent"
         >
             <ClientDetail :client="selectedClient"/>

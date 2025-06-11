@@ -3,7 +3,7 @@ const model = defineModel<string>();
 </script>
 
 <template>
-    <div class="'UiTextarea'">
+    <div class="UiTextarea">
      <textarea
          v-model="model"
          class="UiTextarea__input"

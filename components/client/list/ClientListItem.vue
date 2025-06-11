@@ -53,7 +53,7 @@ const fullName = computed(() => `${props.client.first_name} ${props.client.last_
     cursor: pointer;
     gap: 12px;
 
-    &:hover {
+    @include hover {
         background: var(--primary-50);
     }
 
